@@ -286,7 +286,7 @@ public class JGitUtils
     public static List<ScmFile> addAllFiles( Git git, ScmFileSet fileSet )
         throws GitAPIException, NoFilepatternException
     {
-        URI baseUri = fileSet.getBasedir().toURI();
+        URI baseUri = git.getRepository().getWorkTree().toURI();
         AddCommand add = git.add();
         for ( File file : fileSet.getFileList() )
         {
